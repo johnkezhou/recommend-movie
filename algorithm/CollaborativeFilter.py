@@ -38,6 +38,7 @@ def deal_ratings():
     for line in open(root+file):
         line = f.readline()
         tmp = line.split(",")
+
         if tmp[0] == 'userId':continue
         if len(tmp) != 4:
             continue
@@ -56,15 +57,15 @@ def deal_ratings():
     for ev in movie_ratings_avg:
         movie_ratings_avg[ev] /= movie_ratings_num[ev]
 
-    file = 'user_ratings_avg.csv'
-    f = open(root+file,'w')
-    for key,value in user_ratings_avg.items():
-        f.write(key+","+str(value) + "\n")
-
-    file = 'movie_ratings_avg.csv'
-    f = open(root+file,'w')
-    for key,value in movie_ratings_avg.items():
-        f.write(key+","+str(value) + "\n")
+    # file = 'user_ratings_avg.csv'
+    # f = open(root+file,'w')
+    # for key,value in user_ratings_avg.items():
+    #     f.write(key+","+str(value) + "\n")
+    #
+    # file = 'movie_ratings_avg.csv'
+    # f = open(root+file,'w')
+    # for key,value in movie_ratings_avg.items():
+    #     f.write(key+","+str(value) + "\n")
 
     user_num = sorted(user_ratings_num.items(), key= lambda user_ratings_num:user_ratings_num[1], reverse=True)
     print user_num[0]
@@ -76,7 +77,8 @@ def deal_ratings():
     print movie_num[-1]
     print len(movie_num)
 
-    
+
+
 
 
 if __name__ == '__main__':
